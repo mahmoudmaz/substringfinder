@@ -109,6 +109,16 @@ public class StringFinderTest {
 
     }
 
+    @Test
+    public void test7(){
+        List<String> dataset = Arrays.asList("hohoh", "hihohiho");
+
+        StringFinder f = new StringFinder(dataset);
+
+        List<String> list = f.find("hoho");
+        assertEquals(list.size(),2);
+    }
+
 }
 
 
