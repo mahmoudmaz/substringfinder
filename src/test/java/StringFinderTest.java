@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class StringFinderTest {
@@ -62,6 +63,9 @@ public class StringFinderTest {
 
         List<String> list = f.find("YouIdiot");
         assertEquals(list.size(),2);
+        assertTrue(list.contains("YouIdiot"));
+        assertTrue(list.contains("GoAwayYouIdiot"));
+
     }
     @Test
     public void test5(){
@@ -71,6 +75,8 @@ public class StringFinderTest {
 
         List<String> list = f.find("YouIdiot");
         assertEquals(list.size(),2);
+        assertTrue(list.contains("GoAwayYouIdiot"));
+        assertTrue(list.contains("You Idiot"));
     }
 
 
@@ -83,15 +89,22 @@ public class StringFinderTest {
         {
             List<String> list = f.find("Control");
             assertEquals(list.size(), 2);
-
+            assertTrue(list.contains("ViewerControl"));
+            assertTrue(list.contains("ViewerMetaControlManager"));
         }
         {
             List<String> list = f.find("Manager");
             assertEquals(list.size(), 2);
+            assertTrue(list.contains("MainViewerManager"));
+            assertTrue(list.contains("ViewerMetaControlManager"));
+
         }
         {
             List<String> list = f.find("Viewer");
             assertEquals(list.size(), 3);
+            assertTrue(list.contains("MainViewerManager"));
+            assertTrue(list.contains("ViewerMetaControlManager"));
+            assertTrue(list.contains("ViewerControl"));
         }
 
     }
